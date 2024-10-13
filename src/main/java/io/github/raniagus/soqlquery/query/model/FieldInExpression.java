@@ -21,7 +21,7 @@ public class FieldInExpression implements ConditionExpression {
     List<Object> values;
 
     @Override
-    public String getExpression() {
+    public String toExpression() {
         return values.stream()
                 .map(QueryUtils::formatValue)
                 .collect(Collectors.joining(",", "(" + field + " " + operator.getSymbol() + " (", "))"));

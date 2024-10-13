@@ -12,7 +12,7 @@ public class UnaryExpression implements ConditionExpression {
     ConditionExpression condition;
 
     @Override
-    public String getExpression() {
-        return "(" + operator.getSymbol() + " " + condition.getExpression() + ")";
+    public String toExpression() {
+        return "(" + operator.getSymbol() + " " + condition.toExpression() + ")";
     }
 }

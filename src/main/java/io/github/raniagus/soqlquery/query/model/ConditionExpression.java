@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import java.util.List;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "operator", visible = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "operator", visible = true)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = MultiExpression.class, name = "OR"),
         @JsonSubTypes.Type(value = MultiExpression.class, name = "AND"),
@@ -20,7 +20,7 @@ import java.util.List;
 })
 public interface ConditionExpression {
     Operator getOperator();
-    String getExpression();
+    String toExpression();
 
     static ConditionExpression or(ConditionExpression... conditions) {
         return new MultiExpression(Operator.OR, List.of(conditions));

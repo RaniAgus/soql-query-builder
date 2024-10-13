@@ -16,7 +16,7 @@ public class FieldExpression<T> implements ConditionExpression {
     T value;
 
     @Override
-    public String getExpression() {
+    public String toExpression() {
         return "(" + field + " " + operator.getSymbol() + " " + QueryUtils.formatValue(value) + ")";
     }
 }

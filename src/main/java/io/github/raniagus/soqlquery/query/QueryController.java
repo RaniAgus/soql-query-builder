@@ -22,7 +22,7 @@ public class QueryController {
         return "SELECT %s FROM %s WHERE %s".formatted(
                 String.join(",", configuration.getObjects().get(objectType)),
                 objectType,
-                request.where().getExpression()
+                request.where().toExpression()
         );
     }
 }

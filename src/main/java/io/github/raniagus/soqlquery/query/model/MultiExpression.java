@@ -16,9 +16,9 @@ public class MultiExpression implements ConditionExpression {
     List<ConditionExpression> conditions;
 
     @Override
-    public String getExpression() {
+    public String toExpression() {
         return conditions.stream()
-                .map(ConditionExpression::getExpression)
+                .map(ConditionExpression::toExpression)
                 .collect(Collectors.joining(" " + operator.getSymbol() + " ", "(", ")"));
     }
 }
