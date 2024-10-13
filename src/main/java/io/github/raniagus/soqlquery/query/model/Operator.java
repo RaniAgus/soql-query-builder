@@ -18,5 +18,5 @@ public enum Operator {
     IN("IN");
 
     @Getter(onMethod_ = @JsonValue)
-    private final String symbol;
+    public final String symbol;
 }

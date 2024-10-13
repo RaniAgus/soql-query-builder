@@ -2,15 +2,11 @@ package io.github.raniagus.soqlquery.query.model;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import lombok.Value;
 
-@Value
-public class UnaryExpression implements ConditionExpression {
-    Operator operator;
-
-    @NotNull @Valid
-    ConditionExpression condition;
-
+public record UnaryExpression(
+        Operator operator,
+        @NotNull @Valid ConditionExpression condition
+) implements ConditionExpression {
     @Override
     public String toExpression() {
         return "(" + operator.getSymbol() + " " + condition.toExpression() + ")";

@@ -4,22 +4,15 @@ import io.github.raniagus.soqlquery.query.util.QueryUtils;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import lombok.Value;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Value
-public class FieldInExpression implements ConditionExpression {
-    Operator operator;
-
-    @NotNull
-    @Pattern(regexp = "^\\w+$")
-    String field;
-
-    @NotNull @Size(min = 2)
-    List<Object> values;
-
+public record FieldInExpression(
+        Operator operator,
+        @NotNull @Pattern(regexp = "^\\w+$") String field,
+        @NotNull @Size(min = 2) List<Object> values
+) implements ConditionExpression {
     @Override
     public String toExpression() {
         return values.stream()

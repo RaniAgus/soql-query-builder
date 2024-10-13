@@ -19,7 +19,7 @@ import java.util.List;
         @JsonSubTypes.Type(value = FieldInExpression.class, name = "IN"),
 })
 public interface ConditionExpression {
-    Operator getOperator();
+    Operator operator();
     String toExpression();
 
     static ConditionExpression or(ConditionExpression... conditions) {
