@@ -11,7 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static io.github.raniagus.soqlquery.query.model.ConditionExpression.*;
+import static io.github.raniagus.soqlquery.query.model.QueryBuilder.*;
 
 @WebMvcTest(controllers = QueryController.class)
 class QueryControllerTest {
