@@ -187,4 +187,11 @@ class QueryBuilderTest {
 
         assertEquals("(field IN ('value1','value2'))", inCondition.toSOQL());
     }
+
+    @Test
+    void testInCollection() {
+        ConditionExpression inCondition = QueryBuilder.in("field", List.of("value1", "value2"));
+
+        assertEquals("(field IN ('value1','value2'))", inCondition.toSOQL());
+    }
 }

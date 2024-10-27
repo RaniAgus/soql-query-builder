@@ -37,7 +37,7 @@ void main() {
     var where = and(
             eq("Name", "Test"),
             gt("CreatedDate", Instant.now()),
-            not(in("Type", "Customer", "Partner"))
+            not(in("Type", List.of("Customer", "Partner")))
     );
 
     println(where.toSOQL());

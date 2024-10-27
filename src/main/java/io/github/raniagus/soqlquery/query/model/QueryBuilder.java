@@ -108,4 +108,8 @@ public class QueryBuilder {
     public static ConditionExpression in(String field, String... values) {
         return new FieldInExpression(Operator.IN, field, List.of(values));
     }
+
+    public static ConditionExpression in(String field, Collection<String> values) {
+        return new FieldInExpression(Operator.IN, field, List.copyOf(values));
+    }
 }

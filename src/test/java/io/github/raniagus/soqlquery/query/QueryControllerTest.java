@@ -8,6 +8,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.List;
+import java.util.Set;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -25,7 +28,7 @@ class QueryControllerTest {
         var requestBody = new QueryObjectsRequest(and(
                 eq("Name", "Test"),
                 gt("CreatedDate", "2021-01-01T00:00:00Z"),
-                not(in("Type", "Customer", "Partner"))
+                not(in("Type", List.of("Customer", "Partner")))
         ));
 
         mockMvc.perform(post("/objects/Account")
