@@ -49,10 +49,6 @@ public class QueryBuilder {
         return new FieldExpression<>(Operator.NOT_EQUALS, field, value);
     }
 
-    public static ConditionExpression ne(String field, Boolean value) {
-        return new FieldExpression<>(Operator.NOT_EQUALS, field, value);
-    }
-
     public static ConditionExpression isNull(String field) {
         return new FieldExpression<>(Operator.EQUALS, field, null);
     }
