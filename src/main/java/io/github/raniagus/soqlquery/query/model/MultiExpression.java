@@ -7,14 +7,14 @@ import jakarta.validation.constraints.Size;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public record MultiExpression(
+record MultiExpression(
         Operator operator,
         @NotNull @Size(min = 2) @Valid List<ConditionExpression> conditions
 ) implements ConditionExpression {
     @Override
-    public String toExpression() {
+    public String toSOQL() {
         return conditions.stream()
-                .map(ConditionExpression::toExpression)
+                .map(ConditionExpression::toSOQL)
                 .collect(Collectors.joining(" " + operator.getSymbol() + " ", "(", ")"));
     }
 }
