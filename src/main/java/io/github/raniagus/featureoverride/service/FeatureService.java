@@ -2,7 +2,6 @@ package io.github.raniagus.featureoverride.service;
 
 import com.fasterxml.jackson.databind.ObjectReader;
 import io.github.raniagus.featureoverride.configuration.FeaturesConfiguration;
-import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.raniagus.featureoverride.model.Context;
 import jakarta.annotation.PostConstruct;
@@ -18,10 +17,10 @@ import org.springframework.stereotype.Service;
 @Data
 @Service
 public class FeatureService {
-    @Value("classpath:examples/features-config.json")
-    private Resource featuresConfig;
-    private FeaturesConfiguration features;
+    @Value("classpath:features/config.json")
+    private Resource featuresFile;
     private ObjectReader featuresReader;
+    private FeaturesConfiguration features;
 
     public FeatureService(ObjectMapper objectMapper) {
         this.featuresReader = objectMapper.readerFor(FeaturesConfiguration.class);
@@ -29,7 +28,7 @@ public class FeatureService {
 
     @PostConstruct
     public void init() throws IOException {
-        features = featuresReader.readValue(featuresConfig.getContentAsByteArray());
+        features = featuresReader.readValue(featuresFile.getContentAsByteArray());
     }
 
     public Map<String, Boolean> getFeatures(Map<String, String> params) {
