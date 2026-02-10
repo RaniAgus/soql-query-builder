@@ -1,0 +1,65 @@
+{
+  "defaults": {
+    "faq": true,
+    "gallery": true,
+    "swap_camera": true,
+    "take_photo": true,
+    "record_video": false,
+    "send_audio": false
+  },
+  "overrides": [
+    {
+      "features": {
+        "gallery": false
+      },
+      "condition": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "=",
+            "field": {
+              "name": "platform",
+              "value": "android"
+            }
+          },
+          {
+            "operator": "<",
+            "field": {
+              "name": "os_version",
+              "value": "13"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "features": {
+        "send_audio": true
+      },
+      "condition": {
+        "operator": "OR",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "operator": "IN",
+                "field": {
+                  "name": "platform",
+                  "values": ["android", "ios"]
+                }
+              },
+              {
+                "operator": ">=",
+                "field": {
+                  "name": "version",
+                  "value": "15.0.0"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

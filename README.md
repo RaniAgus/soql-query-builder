@@ -31,7 +31,7 @@ SELECT Id,Name,CreatedDate,LastModifiedDate FROM Account WHERE ((Name = 'Test') 
 ### Building where clause from Java
 
 ```java
-import static io.github.raniagus.soqlquery.query.model.QueryBuilder.*;
+import static io.github.raniagus.featureoverride.model.QueryBuilder.*;
 
 void main() {
     var where = and(

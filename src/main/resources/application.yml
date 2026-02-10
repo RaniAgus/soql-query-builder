@@ -1,23 +1,5 @@
 spring:
   application:
-    name: soql-query
+    name: feature-overrides
 
-soql:
-  objects:
-    Account:
-      - Id
-      - Name
-      - CreatedDate
-      - LastModifiedDate
-    Contact:
-      - Id
-      - Name
-      - Email
-      - CreatedDate
-      - LastModifiedDate
-    Lead:
-      - Id
-      - Name
-      - Status
-      - Amount
-      - CreatedDate
+
