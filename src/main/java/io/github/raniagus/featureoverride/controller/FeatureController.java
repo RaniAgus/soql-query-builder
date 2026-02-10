@@ -1,6 +1,6 @@
 package io.github.raniagus.featureoverride.controller;
 
-import io.github.raniagus.featureoverride.configuration.FeatureConfiguration;
+import io.github.raniagus.featureoverride.service.FeatureService;
 import jakarta.validation.Valid;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 public class FeatureController {
-    private final FeatureConfiguration configuration;
+    private final FeatureService configuration;
 
     @PostMapping("/features")
     public ResponseEntity<Object> getFeatures(@Valid @RequestBody Map<String, String> context) {

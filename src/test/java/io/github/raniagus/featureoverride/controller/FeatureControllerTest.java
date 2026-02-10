@@ -1,6 +1,6 @@
 package io.github.raniagus.featureoverride.controller;
 
-import io.github.raniagus.featureoverride.configuration.FeatureConfiguration;
+import io.github.raniagus.featureoverride.service.FeatureService;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Map;
@@ -13,8 +13,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(controllers = {FeatureConfiguration.class, FeatureController.class})
-class QueryControllerTest {
+@WebMvcTest(controllers = {FeatureService.class, FeatureController.class})
+class FeatureControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
     @Autowired
